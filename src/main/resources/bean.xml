@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       <bean id="helloworld" class="HelloWorld">
+         <property name="name" value="this is a helloworld"></property>
+       </bean>
+
+      <bean id="person" class="com.beanfactory.Person">
+          <property name="name" value="zs"></property>
+      </bean>
+
+    <bean id="animal" class="com.testbeanscope.Animal" scope="singleton">
+    </bean>
+
+    <bean id="table" class="com.testbeanscope.table" scope="prototype">
+    </bean>
+
+    <bean id="helloworldinit" class="com.testinitbean.HelloWorld" scope="singleton" init-method="initMethod" destroy-method="destoryMethod">
+        <property name="name" value="a hard HelloWorld"></property>
+     </bean>
+
+    <bean id="beanpostprocessor" class="com.testbeanpostprocessor.HelloWorld" scope="singleton" init-method="initMethod" destroy-method="destoryMethod" >
+        <property name="message" value="beanpostprocesor"></property>
+    </bean>
+
+    <bean class="com.testbeanpostprocessor.InitHelloWorld"></bean>
+</beans>
