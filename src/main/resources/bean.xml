@@ -24,5 +24,47 @@
         <property name="message" value="beanpostprocesor"></property>
     </bean>
 
-    <bean class="com.testbeanpostprocessor.InitHelloWorld"></bean>
+    <!--<bean class="com.testbeanpostprocessor.InitHelloWorld"></bean>-->
+    <bean id="animal1" class="com.testbeanextend.Animal">
+        <property name="name" value="animal1"></property>
+        <property name="sex" value="male"></property>
+    </bean>
+
+    <bean id="tiger" class="com.testbeanextend.Tiger" parent="animal1">
+        <property name="name" value="tiger1"></property>
+        <property name="isstrong" value="true"></property>
+     </bean>
+
+    <bean id="animaltemplate" abstract="true" >
+       <property name="name" value="anmialtempalate"></property>
+       <property name="isstrong" value="true"></property>
+    </bean>
+
+    <bean id="tiger1" class="com.testbeanextend.Tiger" parent="animaltemplate">
+        <property name="name" value="tiger1"></property>
+        <property name="sex" value="female"></property>
+    </bean>
+
+    <bean id="banji" class="com.testbeanref.BANJI">
+        <constructor-arg ref="student"></constructor-arg>
+    </bean>
+    <bean id="student" class="com.testbeanref.Student"></bean>
+
+    <bean id="senlin" class="com.testbeanref.senlin">
+        <constructor-arg ref="animal2"></constructor-arg>
+        <constructor-arg ref="flower"></constructor-arg>
+        <constructor-arg ref="tree"></constructor-arg>
+    </bean>
+    <bean id="flower" class="com.testbeanref.Flower"></bean>
+    <bean id="animal2" class="com.testbeanref.Animal"></bean>
+    <bean id="tree" class="com.testbeanref.Tree"></bean>
+    <!--<bean id="beanconstructor" class="com.testbeanref.BeanConstrctor">
+        <constructor-arg  value="1.0" type="double"></constructor-arg>
+        <constructor-arg  value="1024" type="int"></constructor-arg>
+    </bean>-->
+    <bean id="beanconstructor" class="com.testbeanref.BeanConstrctor">
+        <constructor-arg index="0" value="1.0"></constructor-arg>
+        <constructor-arg index="1" value="1024"></constructor-arg>
+
+    </bean>
 </beans>
