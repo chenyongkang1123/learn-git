@@ -65,6 +65,16 @@
     <bean id="beanconstructor" class="com.testbeanref.BeanConstrctor">
         <constructor-arg index="0" value="1.0"></constructor-arg>
         <constructor-arg index="1" value="1024"></constructor-arg>
+    </bean>
+    <bean id="word" class="com.testpropertyref.WORD">
+        <property name="spell" ref="spell"></property>
+    </bean>
+    <bean id="spell" class="com.testpropertyref.SPELL">
+    </bean>
 
+    <bean id="outer" class="com.testInnerBean.outer">
+        <property name="inner">
+    <bean id="inner" class="com.testInnerBean.Inner"></bean>
+   </property>
     </bean>
 </beans>
