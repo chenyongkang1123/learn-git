@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config></context:annotation-config>
        <bean id="helloworld" class="HelloWorld">
          <property name="name" value="this is a helloworld"></property>
        </bean>
@@ -77,4 +79,101 @@
     <bean id="inner" class="com.testInnerBean.Inner"></bean>
    </property>
     </bean>
+
+    <bean id="collection" class="com.testpropcollection.Collection">
+        <property name="list">
+           <list>
+               <value>1</value>
+               <value>2</value>
+               <value>4</value>
+           </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="1" value="2"></entry>
+                <entry key="2" value="3"></entry>
+                <entry key="3" value="4"></entry>
+            </map>
+        </property>
+        <property name="set">
+            <set>
+                <value>1</value>
+                <value>3</value>
+                <value>5</value>
+            </set>
+        </property>
+
+        <property name="properties">
+          <props>
+              <prop key="1">2</prop>
+              <prop key="2">3</prop>
+          </props>
+        </property>
+    </bean>
+
+    <bean name="customer" class="com.beanautowird.Customer" ></bean>
+    <bean id="supermarket" class="com.beanautowird.SuperMarket" autowire="byName" >
+        <property name="name" value="suguo"></property>
+    </bean>
+
+    <bean  id="cup" class="com.beanautowird.Cup" autowire="byType">
+        <property name="name" value="lecoleco"></property>
+    </bean>
+    <bean id="water" class="com.beanautowird.Water"></bean>
+
+    <bean id="compture" class="com.beanautowird.Compture" autowire="constructor">
+        <constructor-arg name="name" value="宏碁"></constructor-arg>
+    </bean>
+    <bean id="processor" class="com.beanautowird.Processor"></bean>
+    <bean id="restaurant" class="com.contextannoationconfig.Restaurant">
+        <property name="name" value="和平"></property>
+        <property name="local" value="shanghai"></property>
+    </bean>
+
+    <bean id="house" class="com.contextannoationconfig.House"></bean>
+    <bean id="chair" class="com.contextannoationconfig.Chair"></bean>
+
+    <bean id="clothe" class="com.contextannoationconfig.Clothe"></bean>
+    <bean id="logg" class="com.contextannoationconfig.Logg"></bean>
+
+    <bean id="employee" class="com.contextannoationconfig.Employee">
+        <property name="money" ref="money"></property>
+    </bean>
+    <bean id="money" class="com.contextannoationconfig.Money">
+        <property name="money" value="1000000"></property>
+    </bean>
+
+    <bean id="classrom" class="com.contextannoationconfig.ClassRom"></bean>
+
+    <bean id="student1" class="com.contextannoationconfig.Student">
+        <property name="name" value="zs"></property>
+        <property name="age" value="12"></property>
+    </bean>
+
+    <bean id="student2" class="com.contextannoationconfig.Student">
+        <property name="name" value="ls"></property>
+        <property name="age" value="18"></property>
+    </bean>
+
+    <bean id="pig" class="com.contextannoationconfig.PIG">
+        <property name="name" value="pq"></property>
+    </bean>
+    <bean id="boss" class="com.contextannoationconfig.Boss">
+        <property name="name" value="唐僧"></property>
+    </bean>
+
+    <bean id="wukong" class="com.contextannoationconfig.Wukong">
+    </bean>
+
+    <bean id="ace" class="com.testapplicationlistener.ACE">
+        <property name="message" value="他是一个ace"></property>
+    </bean>
+
+    <bean id="jorden" class="com.testapplicationlistener.Jorden"></bean>
+    <bean id="Zhanmusi" class="com.testapplicationlistener.Zhanmusi"></bean>
+
+    <bean id="eventlistener" class="com.testapplicationlistener.EventListener"></bean>
+    <bean id="eventpublisheraware" class="com.testapplicationlistener.EventPublisherAware"></bean>
+
+
 </beans>
