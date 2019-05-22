@@ -2,8 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:annotation-config></context:annotation-config>
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <context:annotation-config/>
+    <aop:aspectj-autoproxy/>
        <bean id="helloworld" class="HelloWorld">
          <property name="name" value="this is a helloworld"></property>
        </bean>
@@ -173,7 +175,31 @@
     <bean id="Zhanmusi" class="com.testapplicationlistener.Zhanmusi"></bean>
 
     <bean id="eventlistener" class="com.testapplicationlistener.EventListener"></bean>
-    <bean id="eventpublisheraware" class="com.testapplicationlistener.EventPublisherAware"></bean>
+
+    <aop:config>
+        <aop:aspect id="logg" ref="logging">
+            <aop:pointcut id="selectAll" expression="execution(* com.springaop.*.*(..))"/>
+            <aop:before method="beforeAdvice" pointcut-ref="selectAll"/>
+            <aop:after method="afterAdvice" pointcut-ref="selectAll"/>
+            <aop:after-returning method="afterreturnAdvice" pointcut-ref="selectAll" returning="advice"/>
+            <aop:after-throwing method="afterreturnException" pointcut-ref="selectAll" throwing="a"/>
+        </aop:aspect>
+    </aop:config>
+
+
+    <bean id="aopstudent" class="com.springaop.Student">
+        <property name="name" value="zs"></property>
+        <property name="age" value="18"></property>
+    </bean>
+
+    <bean id="logging" class="com.springaop.Logging">
+    </bean>
+
+    <bean id="teacher" class="com.springaop.Teacher">
+        <property name="age" value="30"></property>
+        <property name="name" value="周杰伦"></property>
+    </bean>
+
 
 
 </beans>

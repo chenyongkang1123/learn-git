@@ -133,6 +133,24 @@
       <version>4.3.14.RELEASE</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-asm -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-asm</artifactId>
+      <version>3.0.7.RELEASE</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-expression -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-expression</artifactId>
+      <version>4.3.14.RELEASE</version>
+    </dependency>
+
+
+
+
+
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
     <dependency>
       <groupId>org.springframework</groupId>
@@ -161,12 +179,69 @@
       <version>4.3.14.RELEASE</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-tx -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-tx</artifactId>
+      <version>4.3.14.RELEASE</version>
+    </dependency>
+
+
     <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
     <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
       <version>1.1.1</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/aspectj/aspectjrt -->
+    <dependency>
+      <groupId>aspectj</groupId>
+      <artifactId>aspectjrt</artifactId>
+      <version>1.5.3</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.9.2</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/aopalliance/aopalliance -->
+    <dependency>
+      <groupId>aopalliance</groupId>
+      <artifactId>aopalliance</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>aspectj</groupId>
+      <artifactId>aspectj</artifactId>
+      <version>1.9.4</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/src/main/webapp/bin/aspectj-1.9.4.jar</systemPath>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.7</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/src/main/webapp/bin/mysql-connector-java-5.1.7-bin.jar</systemPath>
+    </dependency>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
